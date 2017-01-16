@@ -16,12 +16,18 @@
 title: Las rutas de Alberto
 email: aldolo.vlc@gmail.com
 
-favicons: "/favicons"
+favicons: /favicons
+img: /img
+featured: featured.jpg
 description: >
   Por ahora iremos poniendo unas cuantas rutas y un par de páginas. Nada demasiado grande.
   La intención es probar.
 baseurl: "" # En teoría estará en el directorio raíz de un subdominio
 url: "" # Mientras sea para probar, nada. También podremos cambiar el hosts del ordenador.
+facebook: {id_user: "1475674066", id_api: "268083790276958", autor: aldolo}
+twitter: {site: aldolo, card: summary_large_image, autor: aldolo}
+
+
 twitter_username: aldolo
 github_username:  fuera
 

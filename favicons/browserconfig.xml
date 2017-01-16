@@ -1,16 +1,16 @@
 ---
 ---
+{% if site.favicons %}
 <?xml version="1.0" encoding="utf-8"?>
 <browserconfig>
   <msapplication>
     <tile>
-      {% if site.favicons %}
       <square70x70logo src="{{ site.favicons }}/mstile-70x70.png"/>
       <square150x150logo src="{{ site.favicons }}/mstile-150x150.png"/>
       <square310x310logo src="{{ site.favicons }}/mstile-310x310.png"/>
       <wide310x150logo src="{{ site.favicons }}/mstile-310x150.png"/>
-      {% endif %}
       <TileColor>#da532c</TileColor>
     </tile>
   </msapplication>
 </browserconfig>
+{% endif %}
