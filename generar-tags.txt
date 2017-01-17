@@ -1,0 +1,4 @@
+---
+---
+#!/bin/bash{% assign tags = site.tags | sort %}{% for tag in tags %}
+{% capture tagslug %}{{ tag.first }}{% endcapture %}echo -e "---\nlayout: tag\n---\n{{ tag | first }}\n" > {% include my-slugify.html in=tagslug %}.html{% endfor %}

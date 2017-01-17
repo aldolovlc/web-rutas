@@ -1,0 +1,14 @@
+---
+layout: default
+---
+{% capture eti %}{{ content | lstrip | rstrip }}{% endcapture %}
+<h1>Rutas que han pasado por {{ eti }}</h1>
+<ul>
+{% for post in site.tags[eti] %}
+<li>
+{% include post-header.html post=post %}
+{{ post.excerpt }}
+<a href="{{ post.url | relative_url}}">Ver más…</a>
+</li>
+{% endfor %}
+</ul>

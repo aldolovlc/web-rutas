@@ -1,0 +1,64 @@
+<aside>
+{% comment %}
+Este aside servirá para poner los widgets del lado izquierdo (por ahora no creo tener necesidad de poner en el lado derecho).
+Podrían ser:
+Descripción de la página <- HECHO
+Amigos (taller juan, perro verde, comando patraix...) <- Falta el logo y el enlace
+Enlaces redes sociales: Twitter, Facebook, Wikiloc, Strava, feed y si acaso youtube... <- Podría hacerlo con SVGs.
+Últimas entradas: Habrá que ver cómo se hace el plugin. <- Era bien fácil.
+Últimos comentarios: No creo que disqus deje hacerlo. Al menos gratis. <-PASANDO
+Nube de tags: Renombrado como "Localidades más visitadas". <- HECHO
+{% endcomment %}
+
+<section>
+{{ site.description | escape }}
+</section>
+
+<section>
+<h1>Amigos</h1>
+<ul>
+<li>Exprimetubici</li>
+<li>El Perro Verde BTT</li>
+<li>Comando Patraix</li>
+<li>Ama-Rodamons</li>
+</ul>
+</section>
+
+<section>
+<h1>En las redes sociales</h1>
+<ul>
+<li><a href="https://es.wikiloc.com/wikiloc/user.do?id=577124"><img src="{{ site.img | append: "/btn-wikiloc.png" | relative_url }}" alt="Enlace a Wikiloc"></a></li>
+<li><a href="https://www.facebook.com/aldolo"><img src="{{ site.img | append: "/btn-facebook.png" | relative_url }}" alt="Enlace a Facebook"></a></li>
+<li><a href="https://twitter.com/aldolo"><img src="{{ site.img | append: "/btn-twitter.png" | relative_url }}" alt="Enlace a Twitter"></a></li>
+<li><a href="{{ "/feed.xml" | relative_url }}"><img src="{{ site.img | append: "/btn-feed.png" | relative_url }}" alt="Enlace al feed de la web"></a></li>
+<li><a href="https://www.strava.com/athletes/9842628"><img src="{{ site.img | append: "/btn-strava.png" | relative_url }}" alt="Enlace a Strava"></a></li>
+<li><a href="https://www.youtube.com/channel/UClTidbjL2cNae3kyH5QT12g"><img src="{{ site.img | append: "/btn-youtube.png" | relative_url }}" alt="Enlace a Youtube"></a></li>
+</ul>
+</section>
+
+<section>
+
+<h1>Últimas entradas</h1>
+<ul>
+{% for entrada in site.posts offset: 0 limit: 10  %}
+<li><a href="{{ entrada.url | relative_url }}">{{ entrada.title | escape }}</a></li>
+{% endfor %}
+</ul>
+</section>
+
+<section>
+<h1>Lugares más visitados</h1>
+{% assign tags = site.tags | sort %}
+<ul>
+{% for tag in tags %}
+<li>
+   {% capture temp %}{{ tag.first }}{% endcapture %}
+   <a href="/lugares/{% include my-slugify.html in=temp %}/" style="font-size: {{ tag | last | size  |  times: 4 | plus: 80  }}%">
+     {{ tag | first }} ({{ tag | last | size }})
+   </a>
+</li>
+{% endfor %}
+</ul>
+</section>
+
+</aside>

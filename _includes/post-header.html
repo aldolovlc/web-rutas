@@ -1,0 +1,29 @@
+{% if include.post.featured %}
+<a href="{{ include.post.url | relative_url }}"><img src="{{ site.img | append: "/" | append: include.post.featured | relative_url }}" alt="{{ "Imagen destacada de " | append: include.post.title | strip_html | escape }}" /></a><br>
+{% endif %}
+        
+{% for categoria in include.post.categories %}
+{% capture aux %}{% include my-slugify.html in=categoria %}{% endcapture %}
+<a href="{{ aux | prepend: "/cat/" | append: ".html" | relative_url }}">{{ categoria }}</a>
+{% endfor %}<br>
+        
+<a href="{{ include.post.url | relative_url }}">{{ include.post.title | escape }}</a><br>
+        
+<a href="{{ include.post.url | relative_url }}"><time datetime="{{ include.post.date | date_to_xmlschema }}">        
+{% assign meses = "enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre" | split: "|" %}
+{% assign m = include.post.date | date: "%-m" | minus: 1 %}
+{% assign mes = meses[m] %}
+{{ include.post.date | date: "%d" }} de {{ mes }} de {{ include.post.date | date: "%Y" }}</time></a><br>
+        
+{% if include.post.autor %}
+{% capture aux %}{% include my-slugify.html in=include.post.autor %}{% endcapture %}
+<a href="{{ aux | prepend: "/autor/" | append: ".html" | relative_url }}">{{ include.post.autor }}</a>
+{% else %}
+{% capture aux %}{% include my-slugify.html in=site.autor %}{% endcapture %}
+<a href="{{ aux | prepend: "/autor/" | append: ".html" | relative_url }}">{{ site.autor }}</a>{% endif %}<br>
+        
+{% if include.post.comments %}<a href="{{ include.post.url | relative_url | append: "#disqus_thread"}}" data-disqus-identifier="{{ include.post.url | absolute_url }}">Deja un comentario</a><br>{% endif %}
+        
+<span class="share-facebook" onclick="share_facebook(this)" data-url="" >Comparte facebook</span><br>
+<span class="share-twitter" onclick="share_twitter(this)" data-url="" data-text="" data-via="">Comparte twitter</span><br>
+<a href="whatsapp://send?text={{ post.url | absolute_url | prepend: " — " | prepend: include.post.title | cgi_escape }}" data-action="share/whatsapp/share">Comparte Whatsapp</a><br>

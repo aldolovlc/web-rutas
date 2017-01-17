@@ -1,0 +1,13 @@
+---
+layout: default
+---
+
+<h1>Estos son todos los lugares por los que pasa alguna ruta</h1>
+  <ul>
+  {% assign tags = site.tags | sort %}
+  {% for tag in tags %}
+  <li>{% capture temp %}{{ tag.first }}{% endcapture %}<a href="/lugares/{% include my-slugify.html in=temp %}/">{{ tag | first }}</a></li>
+    <ul>{% for post in site.tags[temp] %}<li><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></li>{% endfor %}</ul>
+  {% endfor %}
+  </ul>
+

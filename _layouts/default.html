@@ -1,22 +1,12 @@
 <!DOCTYPE html>
 <html lang="es" prefix="og: http://ogp.me/ns#">
-
   {% include head.html %}
-
   <body>
-  <p>Estamos en el default, pero el layout es {{ page.layout }}</p>
-
     {% include header.html %}
-
-    <main class="page-content" aria-label="Content">
-      <p>Esto es default.html</p>
-      <div class="wrapper">
+    {% include sidebar.html %}
+    <main>
         {{ content }}
-      </div>
     </main>
-
     {% include footer.html %}
-
   </body>
-
 </html>

@@ -26,10 +26,28 @@ baseurl: "" # En teoría estará en el directorio raíz de un subdominio
 url: "" # Mientras sea para probar, nada. También podremos cambiar el hosts del ordenador.
 facebook: {id_user: "1475674066", id_api: "268083790276958", autor: aldolo}
 twitter: {site: aldolo, card: summary_large_image, autor: aldolo}
+autor: "Alberto Domínguez"
 
+#Los banners deberían ser de 1260x240
+banners: [banner1.jpg, banner2.jpg]
+
+menu:
+- texto: Sobre mí
+  url: /sobre-mi.html
+- texto: Carretera
+  url: /carretera/
+- texto: Btt
+  url: /btt/
+- texto: Viajes
+  url: /btt/
+- texto: Consejos
+  url: /consejos.html
 
 twitter_username: aldolo
 github_username:  fuera
+
+disqus:
+- shortname: nuevoelperroverdebttes
 
 # Build settings
 markdown: kramdown

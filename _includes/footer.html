@@ -1,46 +1,16 @@
-<footer class="site-footer">
+<footer>
+{% comment %} En el footer: Mi nombre y la fecha, un correo, ¿El logo? y la descripción del site? 
 
-  <div class="wrapper">
+El logo: Las rutas (imagen del ciclista) de Alberto
+Copy CC año primera ruta-año actual (¿Cambia con javascript o lo sacamos de la generación?)
+Enlace a el porqué del proyecto.
 
-    <h2 class="footer-heading">{{ site.title | escape }}</h2>
+También estaría chula una página de acompañantes a las rutas!!!!
 
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li>
-            {% if site.author %}
-              {{ site.author | escape }}
-            {% else %}
-              {{ site.title | escape }}
-            {% endif %}
-            </li>
-            {% if site.email %}
-            <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-            {% endif %}
-        </ul>
-      </div>
+{% endcomment %}
 
-      <div class="footer-col footer-col-2">
-        <ul class="social-media-list">
-          {% if site.github_username %}
-          <li>
-            {% include icon-github.html username=site.github_username %}
-          </li>
-          {% endif %}
-
-          {% if site.twitter_username %}
-          <li>
-            {% include icon-twitter.html username=site.twitter_username %}
-          </li>
-          {% endif %}
-        </ul>
-      </div>
-
-      <div class="footer-col footer-col-3">
-        <p>{{ site.description | escape }}</p>
-      </div>
-    </div>
-
-  </div>
-
+<p>Las rutas <img src="{{ site.img | relative_url | append: "/"}}logo-footer.png" alt="Logo web"> de Alberto<br>
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a> Alberto Domínguez
+ 2014-{{ site.time | date: '%Y' }} — <a href="{{ "/proyecto.html" | relative_url }}">Historia del proyecto</a>
+</p>
 </footer>
